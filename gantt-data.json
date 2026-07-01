@@ -70,7 +70,8 @@
       "label": "VERSIÓN INTERMEDIA",
       "color": "deploy",
       "tasks": [
-        { "label": "Despliegue de Versión Intermedia", "start": "2026-07-13", "end": "2026-07-13", "type": "deploy", "milestone": true, "highlight": true }
+        { "label": "Notas de Versión Intermedia", "start": "2026-07-13", "end": "2026-07-13", "type": "deploy", "milestone": true, "highlight": true },
+        { "label": "Despliegue de Versión Intermedia", "start": "2026-07-14", "end": "2026-07-14", "type": "deploy", "milestone": true, "highlight": true }
       ]
     },
     {
