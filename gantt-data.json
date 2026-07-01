@@ -1,0 +1,113 @@
+{
+  "sprintViews": [
+    {
+      "id": "pre",
+      "label": "Pre-inicio",
+      "coreStart": "2026-06-16",
+      "coreEnd": "2026-06-22",
+      "primaryGroups": ["pre-inicio"]
+    },
+    {
+      "id": "sprint1",
+      "label": "Sprint 1",
+      "coreStart": "2026-06-22",
+      "coreEnd": "2026-07-07",
+      "primaryGroups": ["sprint1-dev", "sprint1-deploy"]
+    },
+    {
+      "id": "sprint2",
+      "label": "Sprint 2",
+      "coreStart": "2026-07-01",
+      "coreEnd": "2026-07-21",
+      "primaryGroups": ["version-intermedia", "sprint2-dev", "sprint2-deploy"]
+    },
+    {
+      "id": "sprint3",
+      "label": "Sprint 3",
+      "coreStart": "2026-07-15",
+      "coreEnd": "2026-07-31",
+      "primaryGroups": ["sprint3-dev"]
+    }
+  ],
+  "groups": [
+    {
+      "id": "pre-inicio",
+      "label": "PRE-INICIO",
+      "color": "pre",
+      "tasks": [
+        { "label": "Revisión y priorización de Backlog",     "start": "2026-06-16", "end": "2026-06-18", "type": "pre",    "noLabel": true },
+        { "label": "Testing última versión 'sin aviso'",      "start": "2026-06-16", "end": "2026-06-19", "type": "pre",    "noLabel": true },
+        { "label": "Despliegue versión 'sin aviso'",          "start": "2026-06-17", "end": "2026-06-22", "type": "deploy", "milestone": true },
+        { "label": "Sprint Planning — Asignación de tareas", "start": "2026-06-18", "end": "2026-06-19", "type": "pre",    "milestone": true },
+        { "label": "Día de CMC",                              "start": "2026-06-19", "end": "2026-06-19", "type": "pre",    "milestone": true }
+      ]
+    },
+    {
+      "id": "sprint1-dev",
+      "label": "SPRINT 1 · DESARROLLO",
+      "color": "dev",
+      "tasks": [
+        { "label": "Sprint 1 — Desarrollo",   "start": "2026-06-22", "end": "2026-06-30", "type": "dev" },
+        { "label": "Fecha de Corte Sprint 1", "start": "2026-06-30", "end": "2026-06-30", "type": "dev", "milestone": true }
+      ]
+    },
+    {
+      "id": "sprint1-deploy",
+      "label": "SPRINT 1 · DESPLIEGUES",
+      "color": "deploy",
+      "tasks": [
+        { "label": "Testing Rama 'test'",                    "start": "2026-07-01", "end": "2026-07-01", "type": "deploy", "milestone": true },
+        { "label": "Testing Rama 'main'",                    "start": "2026-07-02", "end": "2026-07-02", "type": "deploy", "milestone": true },
+        { "label": "Día de CMC",                             "start": "2026-07-03", "end": "2026-07-03", "type": "deploy", "milestone": true },
+        { "label": "Elaboración de Notas de Versión",        "start": "2026-07-03", "end": "2026-07-03", "type": "deploy", "milestone": true },
+        { "label": "Inicio Sprint 2",                        "start": "2026-07-01", "end": "2026-07-01", "type": "dev",    "milestone": true },
+        { "label": "Primera comunicación Notas de Versión",  "start": "2026-07-06", "end": "2026-07-06", "type": "deploy", "milestone": true },
+        { "label": "Despliegue Versión Sprint 1",            "start": "2026-07-07", "end": "2026-07-07", "type": "deploy", "milestone": true, "highlight": true }
+      ]
+    },
+    {
+      "id": "version-intermedia",
+      "label": "VERSIÓN INTERMEDIA",
+      "color": "deploy",
+      "tasks": [
+        { "label": "Despliegue de Versión Intermedia", "start": "2026-07-13", "end": "2026-07-13", "type": "deploy", "milestone": true, "highlight": true }
+      ]
+    },
+    {
+      "id": "sprint2-dev",
+      "label": "SPRINT 2 · DESARROLLO",
+      "color": "dev",
+      "tasks": [
+        { "label": "Sprint 2 — Desarrollo",   "start": "2026-07-01", "end": "2026-07-14", "type": "dev" },
+        { "label": "Fecha de Corte Sprint 2", "start": "2026-07-14", "end": "2026-07-14", "type": "dev", "milestone": true }
+      ]
+    },
+    {
+      "id": "sprint2-deploy",
+      "label": "SPRINT 2 · DESPLIEGUES",
+      "color": "deploy",
+      "tasks": [
+        { "label": "Testing Rama 'test'",                    "start": "2026-07-15", "end": "2026-07-15", "type": "deploy", "milestone": true },
+        { "label": "Testing Rama 'main'",                    "start": "2026-07-16", "end": "2026-07-16", "type": "deploy", "milestone": true },
+        { "label": "Día de CMC",                             "start": "2026-07-17", "end": "2026-07-17", "type": "deploy", "milestone": true },
+        { "label": "Elaboración de Notas de Versión",        "start": "2026-07-17", "end": "2026-07-17", "type": "deploy", "milestone": true },
+        { "label": "Inicio Sprint 3",                        "start": "2026-07-15", "end": "2026-07-15", "type": "dev",    "milestone": true },
+        { "label": "Primera comunicación Notas de Versión",  "start": "2026-07-20", "end": "2026-07-20", "type": "deploy", "milestone": true },
+        { "label": "Despliegue Versión Sprint 2",            "start": "2026-07-21", "end": "2026-07-21", "type": "deploy", "milestone": true, "highlight": true }
+      ]
+    },
+    {
+      "id": "sprint3-dev",
+      "label": "SPRINT 3 · DESARROLLO",
+      "color": "dev",
+      "tasks": [
+        { "label": "Sprint 3 — Desarrollo",          "start": "2026-07-15", "end": "2026-07-28", "type": "dev" },
+        { "label": "Fecha de Corte Sprint 3",         "start": "2026-07-28", "end": "2026-07-28", "type": "dev",    "milestone": true },
+        { "label": "Testing Rama 'test'",             "start": "2026-07-29", "end": "2026-07-29", "type": "deploy", "milestone": true },
+        { "label": "Testing Rama 'main'",             "start": "2026-07-30", "end": "2026-07-30", "type": "deploy", "milestone": true },
+        { "label": "Día de CMC",                      "start": "2026-07-31", "end": "2026-07-31", "type": "deploy", "milestone": true },
+        { "label": "Elaboración de Notas de Versión", "start": "2026-07-31", "end": "2026-07-31", "type": "deploy", "milestone": true }
+      ]
+    }
+  ]
+}

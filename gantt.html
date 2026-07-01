@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plan de Sprints — V&S Ingeniería en Sistemas</title>
+  <link rel="icon" type="image/png" href="logo_vs.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ── Variables ───────────────────────────────── */
+    :root {
+      --vs-cyan:       #4DC8E8;
+      --vs-teal:       #2B8EA6;
+      --vs-deep:       #1F5F72;
+      --vs-navy:       #1A3D4F;
+      --vs-gray-mid:   #B0BEC5;
+      --vs-gray-dark:  #546E7A;
+      --layer-0:       #0B1E27;
+      --layer-1:       #0F2633;
+      --layer-2:       #132D3A;
+      --layer-3:       #1A3D4F;
+      --layer-4:       #1F5F72;
+      --c-pre:         #FBBF24;
+      --c-pre-bg:      rgba(251,191,36,0.18);
+      --c-dev:         #4DC8E8;
+      --c-dev-bg:      rgba(43,142,166,0.22);
+      --c-deploy:      #4ADE80;
+      --c-deploy-bg:   rgba(74,222,128,0.18);
+      --font-h:        'Montserrat', Arial, sans-serif;
+      --font-b:        'Inter', 'Segoe UI', sans-serif;
+      --label-w:       230px;
+    }
+
+    /* ── Reset ───────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 14px; }
+    body {
+      background: var(--layer-0);
+      color: #E0E8EF;
+      font-family: var(--font-b);
+      min-height: 100vh;
+    }
+
+    /* ── Page wrapper ────────────────────────────── */
+    .page { max-width: 90vw; margin: 0 auto; padding: 32px 40px 48px; }
+
+    /* ── Header ──────────────────────────────────── */
+    .header {
+      display: flex; align-items: center; gap: 18px;
+      margin-bottom: 28px; padding-bottom: 20px;
+      border-bottom: 1px solid rgba(77,200,232,0.12);
+    }
+    .logo-wrap { width: 44px; height: 44px; flex-shrink: 0; }
+    .logo-wrap img { width: 100%; height: 100%; object-fit: contain; }
+    .header-text h1 {
+      font-family: var(--font-h); font-size: 1.35rem;
+      font-weight: 800; color: #fff; letter-spacing: 0.02em;
+    }
+    .header-text p { font-size: 0.8rem; color: var(--vs-gray-dark); margin-top: 2px; }
+    .header-actions { margin-left: auto; display: flex; gap: 10px; }
+    .btn-print {
+      background: transparent; border: 1px solid rgba(77,200,232,0.35);
+      color: var(--vs-cyan); font-family: var(--font-b); font-size: 0.78rem;
+      font-weight: 600; padding: 7px 16px; border-radius: 6px; cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+      display: flex; align-items: center; gap: 7px;
+    }
+    .btn-print:hover { background: rgba(77,200,232,0.10); border-color: var(--vs-cyan); }
+
+    /* ── Legend ──────────────────────────────────── */
+    .legend { display: flex; gap: 24px; margin-bottom: 16px; flex-wrap: wrap; }
+    .legend-item {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.75rem; font-weight: 600; color: var(--vs-gray-mid);
+    }
+    .legend-dot    { width: 12px; height: 12px; border-radius: 3px; }
+    .legend-diamond { width: 10px; height: 10px; transform: rotate(45deg); border-radius: 2px; }
+
+    /* ── Sprint Navigator ────────────────────────── */
+    .sprint-nav {
+      display: flex; align-items: center; gap: 14px;
+      margin-bottom: 20px; padding: 10px 18px;
+      background: var(--layer-2); border-radius: 12px;
+      border: 1px solid rgba(77,200,232,0.10);
+    }
+    .sprint-nav-btn {
+      background: transparent; border: 1px solid rgba(77,200,232,0.25);
+      color: var(--vs-cyan); width: 34px; height: 34px; border-radius: 8px;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s, border-color 0.2s; flex-shrink: 0;
+    }
+    .sprint-nav-btn:hover:not(:disabled) {
+      background: rgba(77,200,232,0.12); border-color: var(--vs-cyan);
+    }
+    .sprint-nav-btn:disabled { opacity: 0.28; cursor: default; }
+    .sprint-nav-center {
+      flex: 1; display: flex; flex-direction: column;
+      align-items: center; gap: 3px;
+    }
+    .sprint-nav-name {
+      font-family: var(--font-h); font-size: 0.88rem;
+      font-weight: 700; color: #fff; letter-spacing: 0.02em;
+    }
+    .sprint-nav-range { font-size: 0.72rem; color: var(--vs-gray-dark); }
+    .nav-dots { display: flex; gap: 7px; align-items: center; }
+    .nav-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      transition: background 0.2s, transform 0.2s;
+    }
+    .nav-dot.active { background: var(--vs-cyan); transform: scale(1.25); }
+
+    /* ── Gantt container ─────────────────────────── */
+    .gantt-wrap { overflow-x: auto; }
+    .gantt { display: flex; flex-direction: column; width: 100%; }
+
+    /* header rows */
+    .gantt-header { display: flex; position: sticky; top: 0; z-index: 20; }
+    .gantt-label-col {
+      width: var(--label-w); min-width: var(--label-w);
+      flex-shrink: 0; background: var(--layer-1);
+    }
+    .gantt-timeline { flex: none; position: relative; }
+
+    /* week row */
+    .week-row { display: flex; height: 28px; }
+    .week-cell {
+      height: 28px; background: var(--layer-1);
+      border-right: 1px solid rgba(77,200,232,0.08);
+      border-bottom: 1px solid rgba(77,200,232,0.12);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-h); font-size: 0.65rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.07em; color: var(--vs-cyan);
+      white-space: nowrap; overflow: hidden;
+    }
+
+    /* day row */
+    .day-row { display: flex; height: 26px; }
+    .day-cell {
+      height: 26px; background: var(--layer-1);
+      border-right: 1px solid rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(77,200,232,0.08);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.6rem; font-weight: 500; color: var(--vs-gray-dark);
+      white-space: nowrap; overflow: hidden; flex-shrink: 0;
+    }
+    .day-cell.weekend { background: rgba(255,255,255,0.01); color: rgba(255,255,255,0.18); }
+    .day-cell.today   { background: rgba(77,200,232,0.15); color: var(--vs-cyan); font-weight: 700; }
+
+    /* ── Group rows ──────────────────────────────── */
+    .group-row { display: flex; align-items: stretch; }
+    .group-label {
+      width: var(--label-w); min-width: var(--label-w); flex-shrink: 0;
+      padding: 0 12px; display: flex; align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .group-label.header-label {
+      background: var(--layer-2); height: 30px;
+      border-bottom: 1px solid rgba(77,200,232,0.10);
+    }
+    .group-label.header-label span {
+      font-family: var(--font-h); font-size: 0.62rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.08em;
+    }
+    .group-label.task-label {
+      background: var(--layer-1); font-size: 0.72rem; color: var(--vs-gray-mid);
+    }
+    .group-label.task-label span {
+      overflow: hidden; display: -webkit-box;
+      -webkit-line-clamp: 2; -webkit-box-orient: vertical; line-height: 1.3;
+    }
+
+    /* timeline stripe */
+    .group-timeline { flex: 1; position: relative; }
+    .group-timeline.header-stripe {
+      height: 30px; background: var(--layer-2);
+      border-bottom: 1px solid rgba(77,200,232,0.10);
+    }
+    .group-timeline.task-stripe {
+      background: var(--layer-1);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    /* weekend overlay */
+    .weekend-stripe {
+      position: absolute; top: 0; bottom: 0;
+      background: rgba(0,0,0,0.18); pointer-events: none; z-index: 0;
+    }
+
+    /* today line */
+    .today-line {
+      position: absolute; top: 0; bottom: 0; width: 1px;
+      background: rgba(77,200,232,0.45); pointer-events: none; z-index: 4;
+    }
+
+    /* ── Task bars ───────────────────────────────── */
+    .task-bar {
+      position: absolute; border-radius: 4px; z-index: 2; cursor: default;
+      transition: opacity 0.15s, box-shadow 0.15s;
+    }
+    .task-bar:hover { opacity: 0.85 !important; box-shadow: 0 0 12px rgba(77,200,232,0.30); }
+    .task-bar.pre    { background: var(--c-pre-bg);    border: 1px solid var(--c-pre);    }
+    .task-bar.dev    { background: var(--c-dev-bg);    border: 1px solid var(--c-dev);    }
+    .task-bar.deploy { background: var(--c-deploy-bg); border: 1px solid var(--c-deploy); }
+    .task-bar.dimmed { opacity: 0.25; }
+
+    .task-bar-label {
+      position: absolute; top: 50%; left: 6px;
+      transform: translateY(-50%); font-size: 0.6rem; font-weight: 600;
+      white-space: nowrap; pointer-events: none;
+    }
+    .task-bar.pre .task-bar-label    { color: var(--c-pre);    }
+    .task-bar.dev .task-bar-label    { color: var(--c-dev);    }
+    .task-bar.deploy .task-bar-label { color: var(--c-deploy); }
+
+    /* ── Milestones ──────────────────────────────── */
+    .milestone {
+      position: absolute; transform: rotate(45deg);
+      border-radius: 2px; z-index: 3; cursor: default;
+      transition: box-shadow 0.15s;
+    }
+    .milestone:hover { box-shadow: 0 0 10px currentColor; }
+    .milestone.pre    { background: var(--c-pre);    box-shadow: 0 0 6px rgba(251,191,36,0.4);  }
+    .milestone.dev    { background: var(--c-dev);    box-shadow: 0 0 6px rgba(77,200,232,0.4);  }
+    .milestone.deploy { background: var(--c-deploy); box-shadow: 0 0 6px rgba(74,222,128,0.4);  }
+    .milestone.dimmed { opacity: 0.25; }
+
+    /* ── Tooltip ─────────────────────────────────── */
+    .tooltip {
+      position: fixed; background: #0B1E27;
+      border: 1px solid rgba(77,200,232,0.30); border-radius: 8px;
+      padding: 10px 14px; font-size: 0.72rem; line-height: 1.5;
+      max-width: 240px; z-index: 9999; pointer-events: none;
+      opacity: 0; transition: opacity 0.15s;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.50);
+    }
+    .tooltip.show { opacity: 1; }
+    .tooltip-label { font-weight: 700; color: #fff; margin-bottom: 4px; font-size: 0.75rem; }
+    .tooltip-date  { color: var(--vs-gray-mid); }
+    .tooltip-type  { font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 4px; }
+    .tooltip-type.pre    { color: var(--c-pre);    }
+    .tooltip-type.dev    { color: var(--c-dev);    }
+    .tooltip-type.deploy { color: var(--c-deploy); }
+
+    /* ── Loading / Error state ───────────────────── */
+    .state-msg {
+      padding: 48px; text-align: center;
+      color: var(--vs-gray-dark); font-size: 0.85rem; line-height: 1.8;
+    }
+    .state-msg.error { color: #F87171; }
+
+    /* ── Print ───────────────────────────────────── */
+    @media print {
+      @page { size: A4 landscape; margin: 6mm 8mm; }
+      html  { zoom: 85%; }
+      body  { background: #fff; color: #1A3D4F; font-size: 10px; }
+      :root {
+        --layer-0: #ffffff; --layer-1: #f7f9fa;
+        --layer-2: #eaeff2; --label-w: 190px;
+      }
+      .page { padding: 14px 18px 16px; max-width: 100%; }
+      .header { border-bottom: 1px solid #B0BEC5 !important; margin-bottom: 10px; padding-bottom: 10px; }
+      .header-text h1 { color: #1A3D4F; font-size: 1.25rem; }
+      .header-text p  { color: #546E7A; font-size: 0.78rem; }
+      .legend { margin-bottom: 10px; }
+      .legend-item { color: #546E7A; }
+      .btn-print, .header-actions, .sprint-nav { display: none !important; }
+      .gantt-wrap { overflow: visible; }
+      .gantt      { width: max-content !important; }
+      .week-cell {
+        background: #1A3D4F !important; color: #ffffff !important;
+        border-right: 1px solid rgba(255,255,255,0.25) !important; font-size: 0.68rem;
+      }
+      .day-cell {
+        background: #f7f9fa !important; color: #546E7A !important;
+        border-right: 1px solid rgba(26,61,79,0.18) !important;
+        border-bottom: 1px solid rgba(26,61,79,0.10) !important; font-size: 0.6rem;
+      }
+      .day-cell.weekend {
+        background: #edf0f2 !important; color: #B0BEC5 !important;
+        border-right: 1px solid rgba(26,61,79,0.10) !important;
+      }
+      .group-label.header-label { background: #1A3D4F !important; border-bottom: 1px solid rgba(255,255,255,0.12) !important; }
+      .group-label.header-label span { color: #ffffff !important; font-size: 0.58rem; }
+      .group-label.task-label  { background: #f7f9fa !important; color: #546E7A !important; font-size: 0.65rem; }
+      .group-timeline.header-stripe { background: #1A3D4F !important; border-bottom: 1px solid rgba(255,255,255,0.10) !important; }
+      .group-timeline.task-stripe   { background: #f7f9fa !important; border-bottom: 1px solid rgba(26,61,79,0.10) !important; }
+      .group-row:nth-child(even) .group-timeline.task-stripe { background: #eff3f5 !important; }
+      .group-row:nth-child(even) .group-label.task-label     { background: #eff3f5 !important; }
+      .weekend-stripe { background: rgba(26,61,79,0.05) !important; }
+      .today-line { display: none; }
+      .task-bar.pre    { background: rgba(251,191,36,0.30) !important; border: 1.5px solid #b45309 !important; }
+      .task-bar.dev    { background: rgba(43,142,166,0.28) !important; border: 1.5px solid #1F5F72 !important; }
+      .task-bar.deploy { background: rgba(34,197,94,0.28)  !important; border: 1.5px solid #166534 !important; }
+      .task-bar.pre    .task-bar-label { color: #7c2d12 !important; font-size: 0.52rem; }
+      .task-bar.dev    .task-bar-label { color: #1F5F72 !important; font-size: 0.52rem; }
+      .task-bar.deploy .task-bar-label { color: #14532d !important; font-size: 0.52rem; }
+      .milestone.pre    { background: #b45309 !important; box-shadow: none !important; }
+      .milestone.dev    { background: #1F5F72 !important; box-shadow: none !important; }
+      .milestone.deploy { background: #166534 !important; box-shadow: none !important; }
+      .task-bar.dimmed, .milestone.dimmed { opacity: 1 !important; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="logo-wrap">
+      <img src="logo_vs.png" alt="VS Ingeniería">
+    </div>
+    <div class="header-text">
+      <h1>Plan de Sprints — Ciclo Junio–Julio 2026</h1>
+      <p>V&S Ingeniería en Sistemas &nbsp;·&nbsp; Planificación operativa de desarrollo y despliegues</p>
+    </div>
+    <div class="header-actions">
+      <button type="button" class="btn-print" onclick="window.print()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        Imprimir / PDF
+      </button>
+    </div>
+  </div>
+
+  <!-- Legend -->
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:rgba(251,191,36,0.30);border:1px solid #FBBF24;"></div>Pre-inicio</div>
+    <div class="legend-item"><div class="legend-dot" style="background:rgba(43,142,166,0.28);border:1px solid #4DC8E8;"></div>Desarrollo</div>
+    <div class="legend-item"><div class="legend-dot" style="background:rgba(74,222,128,0.25);border:1px solid #4ADE80;"></div>Despliegues</div>
+    <div class="legend-item"><div class="legend-diamond" style="background:#FBBF24;"></div>Hito Pre-inicio</div>
+    <div class="legend-item"><div class="legend-diamond" style="background:#4DC8E8;"></div>Hito Desarrollo</div>
+    <div class="legend-item"><div class="legend-diamond" style="background:#4ADE80;"></div>Hito Despliegue</div>
+  </div>
+
+  <!-- Sprint Navigator -->
+  <div class="sprint-nav">
+    <button type="button" class="sprint-nav-btn" id="btn-prev" onclick="navigate(-1)" title="Sprint anterior (←)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <div class="sprint-nav-center">
+      <span class="sprint-nav-name" id="sprint-name">Cargando…</span>
+      <span class="sprint-nav-range" id="sprint-range"></span>
+    </div>
+    <button type="button" class="sprint-nav-btn" id="btn-next" onclick="navigate(1)" title="Sprint siguiente (→)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+    <div class="nav-dots" id="nav-dots"></div>
+  </div>
+
+  <!-- Gantt -->
+  <div class="gantt-wrap">
+    <div class="gantt" id="gantt">
+      <div class="state-msg">Cargando datos…</div>
+    </div>
+  </div>
+</div>
+
+<!-- Tooltip -->
+<div class="tooltip" id="tooltip">
+  <div class="tooltip-label" id="tt-label"></div>
+  <div class="tooltip-date"  id="tt-date"></div>
+  <div class="tooltip-type"  id="tt-type"></div>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════════
+   LAYOUT CONFIG
+   ═══════════════════════════════════════════════════ */
+const SCREEN_CFG = { colW: 34, colWE: 10, rowH: 36, groupH: 30 };
+const PRINT_CFG  = { colW: 34, colWE: 10, rowH: 22, groupH: 23 };
+
+/* ═══════════════════════════════════════════════════
+   STATE
+   ═══════════════════════════════════════════════════ */
+let GROUPS       = [];
+let SPRINT_VIEWS = [];
+let currentViewIdx = 0;
+
+/* ═══════════════════════════════════════════════════
+   DATE UTILITIES
+   ═══════════════════════════════════════════════════ */
+function parseDate(s) {
+  const [y, m, d] = s.split('-').map(Number);
+  return new Date(y, m - 1, d);
+}
+function toDateStr(d) {
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+}
+function todayStr() { return toDateStr(new Date()); }
+function isWeekend(d) { const w = d.getDay(); return w === 0 || w === 6; }
+
+function fmtDate(d) {
+  const days   = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
+  const months = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+  return `${days[d.getDay()]} ${d.getDate()} ${months[d.getMonth()]}`;
+}
+function fmtShort(s) {
+  const d = parseDate(s);
+  const months = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+  return `${d.getDate()} ${months[d.getMonth()]}`;
+}
+
+function buildDays(start, end) {
+  const days = [];
+  const cur = new Date(start);
+  while (cur <= end) { days.push(new Date(cur)); cur.setDate(cur.getDate() + 1); }
+  return days;
+}
+function buildWeeks(days) {
+  const weeks = [];
+  let cur = null;
+  for (const d of days) {
+    const mon = new Date(d);
+    mon.setDate(d.getDate() - ((d.getDay() + 6) % 7));
+    const key = mon.toISOString().slice(0, 10);
+    if (!cur || cur.key !== key) { cur = { key, label: weekLabel(d), days: [] }; weeks.push(cur); }
+    cur.days.push(d);
+  }
+  return weeks;
+}
+function weekLabel(d) {
+  const months = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+  const mon = new Date(d);
+  mon.setDate(d.getDate() - ((d.getDay() + 6) % 7));
+  const fri = new Date(mon); fri.setDate(mon.getDate() + 4);
+  if (mon.getMonth() === fri.getMonth())
+    return `${months[mon.getMonth()]} ${mon.getDate()}–${fri.getDate()}`;
+  return `${mon.getDate()} ${months[mon.getMonth()]}–${fri.getDate()} ${months[fri.getMonth()]}`;
+}
+
+/* ═══════════════════════════════════════════════════
+   WINDOW COMPUTATION  (ISO weeks Mon–Sun)
+   ═══════════════════════════════════════════════════ */
+function computeWindow(coreStart, coreEnd) {
+  const s = parseDate(coreStart);
+  const e = parseDate(coreEnd);
+  const ws = new Date(s);
+  ws.setDate(s.getDate() - ((s.getDay() + 6) % 7));       // Monday
+  const we = new Date(e);
+  we.setDate(e.getDate() + (6 - (e.getDay() + 6) % 7));   // Sunday
+  return { winStart: toDateStr(ws), winEnd: toDateStr(we) };
+}
+
+/* ═══════════════════════════════════════════════════
+   SPRINT NAVIGATION
+   ═══════════════════════════════════════════════════ */
+function findInitialIdx() {
+  const today = todayStr();
+  for (let i = 0; i < SPRINT_VIEWS.length; i++) {
+    if (today >= SPRINT_VIEWS[i].coreStart && today <= SPRINT_VIEWS[i].coreEnd) return i;
+  }
+  if (SPRINT_VIEWS.length && today < SPRINT_VIEWS[0].coreStart) return 0;
+  return Math.max(0, SPRINT_VIEWS.length - 1);
+}
+
+function updateNav() {
+  if (!SPRINT_VIEWS.length) return;
+  const v = SPRINT_VIEWS[currentViewIdx];
+  const { winStart, winEnd } = computeWindow(v.coreStart, v.coreEnd);
+  document.getElementById('sprint-name').textContent  = v.label;
+  document.getElementById('sprint-range').textContent =
+    `${fmtShort(winStart)} – ${fmtShort(winEnd)}`;
+  document.getElementById('btn-prev').disabled = currentViewIdx === 0;
+  document.getElementById('btn-next').disabled = currentViewIdx === SPRINT_VIEWS.length - 1;
+  document.getElementById('nav-dots').innerHTML = SPRINT_VIEWS.map((_, i) =>
+    `<div class="nav-dot${i === currentViewIdx ? ' active' : ''}"></div>`
+  ).join('');
+}
+
+function navigate(delta) {
+  currentViewIdx = Math.max(0, Math.min(SPRINT_VIEWS.length - 1, currentViewIdx + delta));
+  renderCurrent();
+}
+
+function renderCurrent(lcfg) {
+  if (!SPRINT_VIEWS.length) return;
+  lcfg = lcfg || SCREEN_CFG;
+  const v = SPRINT_VIEWS[currentViewIdx];
+  const { winStart, winEnd } = computeWindow(v.coreStart, v.coreEnd);
+  render(lcfg, winStart, winEnd, v.primaryGroups || null);
+  updateNav();
+}
+
+/* ═══════════════════════════════════════════════════
+   HELPERS
+   ═══════════════════════════════════════════════════ */
+function typeLabel(t) { return t==='pre'?'Pre-inicio':t==='dev'?'Desarrollo':'Despliegue'; }
+function typeClass(t)  { return t==='pre'?'pre':t==='dev'?'dev':'deploy'; }
+function groupColorStyle(c) {
+  return c==='pre'?'color:var(--c-pre)':c==='dev'?'color:var(--c-dev)':'color:var(--c-deploy)';
+}
+
+/* ═══════════════════════════════════════════════════
+   RENDER ENGINE
+   ═══════════════════════════════════════════════════ */
+function render(lcfg, winStart, winEnd, primaryGroups) {
+  const isPrint = lcfg === PRINT_CFG;
+  const rh = lcfg.rowH, gh = lcfg.groupH;
+
+  const _start = parseDate(winStart);
+  const _end   = parseDate(winEnd);
+  const days   = buildDays(_start, _end);
+  const weeks  = buildWeeks(days);
+
+  const wDays  = days.filter(d => !isWeekend(d)).length;
+  const wkDays = days.filter(d =>  isWeekend(d)).length;
+
+  let cw, we;
+  if (isPrint) {
+    cw = lcfg.colW; we = lcfg.colWE;
+  } else {
+    const wrap   = document.querySelector('.gantt-wrap');
+    const labelW = parseFloat(getComputedStyle(document.documentElement)
+                    .getPropertyValue('--label-w')) || 230;
+    const availW = wrap ? wrap.clientWidth - labelW : 0;
+    if (availW > 10) {
+      const ratio = lcfg.colWE / lcfg.colW;
+      cw = availW / (wDays + wkDays * ratio);
+      we = cw * ratio;
+    } else { cw = lcfg.colW; we = lcfg.colWE; }
+  }
+
+  const barH    = Math.round(Math.min(rh * 0.56, 20));
+  const barTop  = Math.floor((rh - barH) / 2);
+  const mSize   = Math.round(Math.min(rh * 0.42, 14));
+  const mSizeHl = Math.round(Math.min(rh * 0.48, 16));
+  const mCY     = Math.floor(rh / 2);
+  const today   = todayStr();
+
+  const totalW = days.reduce((s, d) => s + (isWeekend(d) ? we : cw), 0);
+
+  /* x-position of a date within the window */
+  function xOf(date) {
+    let x = 0;
+    for (const d of days) { if (d >= date) break; x += isWeekend(d) ? we : cw; }
+    return x;
+  }
+  /* pixel span covering [s, e] within the window */
+  function spanW(s, e) {
+    let w = 0;
+    for (const d of days) { if (d < s) continue; if (d > e) break; w += isWeekend(d) ? we : cw; }
+    return w;
+  }
+  /* weekend overlay divs */
+  function weekendStripes() {
+    let html = '', x = 0;
+    for (const d of days) {
+      const w = isWeekend(d) ? we : cw;
+      if (isWeekend(d)) html += `<div class="weekend-stripe" style="left:${x}px;width:${w}px;"></div>`;
+      x += w;
+    }
+    return html;
+  }
+  /* vertical today marker */
+  function todayLine() {
+    const td = parseDate(today);
+    if (td < _start || td > _end) return '';
+    const x = xOf(td) + (isWeekend(td) ? we : cw) / 2;
+    return `<div class="today-line" style="left:${x}px;"></div>`;
+  }
+
+  let html = '';
+  const dayNames = ['D','L','M','X','J','V','S'];
+
+  /* ── Header ─────────────────────────────────── */
+  html += `<div class="gantt-header">`;
+  html += `<div class="gantt-label-col" style="height:54px;display:flex;align-items:flex-end;
+    padding:0 12px 4px;background:var(--layer-1);border-bottom:1px solid rgba(77,200,232,0.08);">
+    <span style="font-family:var(--font-h);font-size:0.58rem;font-weight:700;
+      text-transform:uppercase;letter-spacing:.07em;color:var(--vs-gray-dark);">Actividad</span>
+  </div>`;
+  html += `<div class="gantt-timeline" style="width:${totalW}px;">`;
+
+  html += `<div class="week-row">`;
+  for (const wk of weeks) {
+    const ww = wk.days.reduce((s, d) => s + (isWeekend(d) ? we : cw), 0);
+    html += `<div class="week-cell" style="width:${ww}px;min-width:${ww}px;">${wk.label}</div>`;
+  }
+  html += `</div><div class="day-row">`;
+  for (const d of days) {
+    const w = isWeekend(d) ? we : cw;
+    const isToday = toDateStr(d) === today;
+    const cls = isWeekend(d) ? 'weekend' : (isToday ? 'today' : '');
+    const lbl = isWeekend(d) ? '' : (w >= 24 ? `${dayNames[d.getDay()]} ${d.getDate()}` : d.getDate());
+    html += `<div class="day-cell ${cls}" style="width:${w}px;min-width:${w}px;">${lbl}</div>`;
+  }
+  html += `</div></div></div>`;
+
+  /* ── Groups ──────────────────────────────────── */
+  for (const g of GROUPS) {
+    const isPrimary = !primaryGroups || primaryGroups.includes(g.id);
+    const dimOpacity = isPrimary ? '' : ' style="opacity:0.38"';
+
+    /* collect tasks visible in this window */
+    const visibleTasks = [];
+    for (const t of g.tasks) {
+      const ts = parseDate(t.start);
+      const te = parseDate(t.end);
+      if (t.milestone) {
+        if (te < _start || te > _end) continue;
+      } else {
+        if (te < _start || ts > _end) continue;
+      }
+      visibleTasks.push(t);
+    }
+    if (visibleTasks.length === 0) continue;
+
+    /* group header */
+    html += `<div class="group-row">`;
+    html += `<div class="group-label header-label" style="height:${gh}px;"${dimOpacity}>
+               <span style="${groupColorStyle(g.color)}">${g.label}</span>
+             </div>`;
+    html += `<div class="group-timeline header-stripe"
+               style="height:${gh}px;width:${totalW}px;">
+               ${weekendStripes()}${todayLine()}
+             </div></div>`;
+
+    /* task rows */
+    for (const t of visibleTasks) {
+      const ts  = parseDate(t.start);
+      const te  = parseDate(t.end);
+      const cls = typeClass(t.type);
+      const dimmed = isPrimary ? '' : ' dimmed';
+
+      let barHtml = '';
+      if (t.milestone) {
+        const endColW = isWeekend(te) ? we : cw;
+        const cx = xOf(te) + endColW / 2;
+        const sz = t.highlight ? mSizeHl : mSize;
+        barHtml = `<div class="milestone ${cls}${t.highlight?' highlight':''}${dimmed}"
+          style="left:${cx}px;top:${mCY}px;width:${sz}px;height:${sz}px;
+                 margin-left:-${sz/2}px;margin-top:-${sz/2}px;"
+          data-label="${t.label}" data-start="${t.start}"
+          data-end="${t.end}" data-type="${t.type}"></div>`;
+      } else {
+        const x  = xOf(ts);
+        const bw = Math.max(spanW(ts, te), 8);
+        barHtml = `<div class="task-bar ${cls}${dimmed}"
+          style="left:${x}px;width:${bw}px;top:${barTop}px;height:${barH}px;"
+          data-label="${t.label}" data-start="${t.start}"
+          data-end="${t.end}" data-type="${t.type}">
+          ${bw > 60 && !t.noLabel ? `<span class="task-bar-label">${t.label}</span>` : ''}
+        </div>`;
+      }
+
+      html += `<div class="group-row">`;
+      html += `<div class="group-label task-label"
+                 style="height:${rh}px;"${dimOpacity}><span>${t.label}</span></div>`;
+      html += `<div class="group-timeline task-stripe"
+                 style="height:${rh}px;width:${totalW}px;">
+                 ${weekendStripes()}${todayLine()}
+${barHtml}
+               </div></div>`;
+    }
+  }
+
+  document.getElementById('gantt').innerHTML = html;
+
+  /* Tooltip */
+  const tooltip = document.getElementById('tooltip');
+  document.querySelectorAll('[data-label]').forEach(el => {
+    el.addEventListener('mousemove', e => {
+      const s = el.dataset.start, en = el.dataset.end, ty = el.dataset.type;
+      document.getElementById('tt-label').textContent = el.dataset.label;
+      document.getElementById('tt-date').textContent  =
+        s === en ? fmtDate(parseDate(s))
+                 : `${fmtDate(parseDate(s))} – ${fmtDate(parseDate(en))}`;
+      const ttType = document.getElementById('tt-type');
+      ttType.textContent = typeLabel(ty);
+      ttType.className   = `tooltip-type ${typeClass(ty)}`;
+      tooltip.style.left = (e.clientX + 14) + 'px';
+      tooltip.style.top  = (e.clientY - 10) + 'px';
+      tooltip.classList.add('show');
+    });
+    el.addEventListener('mouseleave', () => tooltip.classList.remove('show'));
+  });
+}
+
+/* ═══════════════════════════════════════════════════
+   PRINT EVENTS
+   ═══════════════════════════════════════════════════ */
+window.addEventListener('beforeprint', () => {
+  if (!SPRINT_VIEWS.length) return;
+  const v = SPRINT_VIEWS[currentViewIdx];
+  const { winStart, winEnd } = computeWindow(v.coreStart, v.coreEnd);
+  const _start = parseDate(winStart);
+  const _end   = parseDate(winEnd);
+  const days   = buildDays(_start, _end);
+
+  const visibleGroups = GROUPS.filter(g => g.tasks.some(t => {
+    const ts = parseDate(t.start), te = parseDate(t.end);
+    return t.milestone ? (te >= _start && te <= _end) : (te >= _start && ts <= _end);
+  }));
+  const totalRows = visibleGroups.length +
+    visibleGroups.reduce((n, g) => n + g.tasks.filter(t => {
+      const ts = parseDate(t.start), te = parseDate(t.end);
+      return t.milestone ? (te >= _start && te <= _end) : (te >= _start && ts <= _end);
+    }).length, 0);
+
+  const A4H    = Math.floor((198 / 25.4 * 96) / 0.85);
+  const optRH  = Math.min(Math.floor((A4H - 175) / totalRows), 52);
+  const optGH  = Math.max(optRH - 4, 20);
+  renderCurrent({ ...PRINT_CFG, rowH: optRH, groupH: optGH });
+});
+window.addEventListener('afterprint', () => renderCurrent(SCREEN_CFG));
+
+/* ═══════════════════════════════════════════════════
+   KEYBOARD NAVIGATION
+   ═══════════════════════════════════════════════════ */
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowLeft')  navigate(-1);
+  if (e.key === 'ArrowRight') navigate(1);
+});
+
+/* ═══════════════════════════════════════════════════
+   INIT — fetch JSON
+   NOTE: requires an HTTP server (not file://).
+   Local dev: VS Code Live Server or python -m http.server
+   ═══════════════════════════════════════════════════ */
+fetch('gantt-data.json')
+  .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
+  .then(data => {
+    GROUPS       = data.groups       || [];
+    SPRINT_VIEWS = data.sprintViews  || [];
+    currentViewIdx = findInitialIdx();
+    renderCurrent(SCREEN_CFG);
+  })
+  .catch(err => {
+    document.getElementById('gantt').innerHTML =
+      `<div class="state-msg error">
+        No se pudo cargar <code>gantt-data.json</code>.<br>
+        <span style="color:var(--vs-gray-dark);font-size:0.8rem;">
+          Para desarrollo local usá VS Code Live Server o
+          <code>python -m http.server</code> en esta carpeta.
+        </span>
+      </div>`;
+    console.error('Gantt load error:', err);
+  });
+
+window.addEventListener('resize', () => renderCurrent(SCREEN_CFG));
+</script>
+</body>
+</html>
