@@ -78,6 +78,9 @@
       "label": "VERSIÓN INTERMEDIA",
       "color": "deploy",
       "tasks": [
+        { "label": "Desarrollo versión intermedia", "start": "2026-07-06", "end": "2026-07-09", "type": "dev", "milestone": true, "highlight": true },
+        { "label": "Testing Rama 'test' V. Int.", "start": "2026-07-09", "end": "2026-07-09", "type": "deploy", "milestone": true, "highlight": true },
+        { "label": "Testing Rama 'main' V. Int.", "start": "2026-07-10", "end": "2026-07-10", "type": "deploy", "milestone": true, "highlight": true },
         { "label": "Notas de Versión Intermedia", "start": "2026-07-13", "end": "2026-07-13", "type": "deploy", "milestone": true, "highlight": true },
         { "label": "Despliegue de Versión Intermedia", "start": "2026-07-14", "end": "2026-07-14", "type": "deploy", "milestone": true, "highlight": true }
       ]
