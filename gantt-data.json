@@ -1,114 +1,109 @@
 {
   "sprintViews": [
-    {
-      "id": "pre",
-      "label": "Pre-inicio",
-      "coreStart": "2026-06-16",
-      "coreEnd": "2026-06-22",
-      "primaryGroups": ["pre-inicio"]
-    },
-    {
-      "id": "sprint21",
-      "label": "Sprint 21",
-      "coreStart": "2026-06-22",
-      "coreEnd": "2026-07-07",
-      "primaryGroups": ["sprint21-dev", "sprint21-deploy"]
-    },
-    {
-      "id": "sprint22",
-      "label": "Sprint 22",
-      "coreStart": "2026-07-01",
-      "coreEnd": "2026-07-21",
-      "primaryGroups": ["version-intermedia", "sprint22-dev", "sprint22-deploy"]
-    },
-    {
-      "id": "sprint23",
-      "label": "Sprint 23",
-      "coreStart": "2026-07-15",
-      "coreEnd": "2026-07-31",
-      "primaryGroups": ["sprint23-dev"]
-    }
+    {"id": "sprint27", "label": "Sprint 27", "coreStart": "2026-09-02", "coreEnd": "2026-09-22", "primaryGroups": ["sprint27-dev", "sprint27-deploy"]},
+    {"id": "sprint28", "label": "Sprint 28", "coreStart": "2026-09-16", "coreEnd": "2026-10-06", "primaryGroups": ["sprint28-dev", "sprint28-deploy"]},
+    {"id": "sprint29", "label": "Sprint 29", "coreStart": "2026-09-30", "coreEnd": "2026-10-20", "primaryGroups": ["sprint29-dev", "sprint29-deploy"]},
+    {"id": "sprint30", "label": "Sprint 30", "coreStart": "2026-10-14", "coreEnd": "2026-11-03", "primaryGroups": ["sprint30-dev", "sprint30-deploy"]}
   ],
   "groups": [
     {
-      "id": "pre-inicio",
-      "label": "PRE-INICIO",
-      "color": "pre",
-      "tasks": [
-        { "label": "Revisión y priorización de Backlog",     "start": "2026-06-16", "end": "2026-06-18", "type": "pre",    "noLabel": true },
-        { "label": "Testing última versión 'sin aviso'",      "start": "2026-06-16", "end": "2026-06-19", "type": "pre",    "noLabel": true },
-        { "label": "Despliegue versión 'sin aviso'",          "start": "2026-06-17", "end": "2026-06-22", "type": "deploy", "milestone": true },
-        { "label": "Sprint Planning — Asignación de tareas", "start": "2026-06-18", "end": "2026-06-19", "type": "pre",    "milestone": true },
-        { "label": "Día de CMC",                              "start": "2026-06-19", "end": "2026-06-19", "type": "pre",    "milestone": true }
-      ]
-    },
-    {
-      "id": "sprint21-dev",
-      "label": "SPRINT 21 · DESARROLLO",
+      "id": "sprint27-dev",
+      "label": "SPRINT 27 · DESARROLLO",
       "color": "dev",
       "tasks": [
-        { "label": "Sprint 21 — Desarrollo",   "start": "2026-06-22", "end": "2026-06-30", "type": "dev" },
-        { "label": "Fecha de Corte Sprint 21", "start": "2026-06-30", "end": "2026-06-30", "type": "dev", "milestone": true }
+        { "label": "Sprint 27 — Período del Sprint", "start": "2026-09-02", "end": "2026-09-15", "type": "dev" },
+        { "label": "Fecha de Corte Sprint 27", "start": "2026-09-15", "end": "2026-09-15", "type": "dev", "milestone": true, "time": "Última hora" },
+        { "label": "Período de Testing", "start": "2026-09-16", "end": "2026-09-18", "type": "deploy" },
+        { "label": "Fin estimado T1", "start": "2026-09-17", "end": "2026-09-17", "type": "deploy", "milestone": true },
+        { "label": "Fin estimado T2", "start": "2026-09-18", "end": "2026-09-18", "type": "deploy", "milestone": true }
       ]
     },
     {
-      "id": "sprint21-deploy",
-      "label": "SPRINT 21 · DESPLIEGUES",
+      "id": "sprint27-deploy",
+      "label": "SPRINT 27 · DESPLIEGUES",
       "color": "deploy",
       "tasks": [
-        { "label": "Testing Rama 'test'",                    "start": "2026-07-01", "end": "2026-07-01", "type": "deploy", "milestone": true },
-        { "label": "Testing Rama 'main'",                    "start": "2026-07-02", "end": "2026-07-02", "type": "deploy", "milestone": true },
-        { "label": "Día de CMC",                             "start": "2026-07-03", "end": "2026-07-03", "type": "deploy", "milestone": true },
-        { "label": "Elaboración de Notas de Versión",        "start": "2026-07-03", "end": "2026-07-03", "type": "deploy", "milestone": true },
-        { "label": "Primera comunicación Notas de Versión",  "start": "2026-07-06", "end": "2026-07-06", "type": "deploy", "milestone": true },
-        { "label": "Despliegue Versión Sprint 21",            "start": "2026-07-07", "end": "2026-07-07", "type": "deploy", "milestone": true, "highlight": true }
+        { "label": "Compilado", "start": "2026-09-21", "end": "2026-09-21", "type": "deploy", "milestone": true, "time": "Mañana" },
+        { "label": "Preparación de herramientas de control", "start": "2026-09-21", "end": "2026-09-21", "type": "deploy", "milestone": true, "time": "Mañana" },
+        { "label": "Actualización de BDD", "start": "2026-09-21", "end": "2026-09-21", "type": "deploy", "milestone": true, "time": "Mañana" },
+        { "label": "Despliegue 1 (Pase a adm. para control)", "start": "2026-09-21", "end": "2026-09-21", "type": "deploy", "milestone": true, "time": "Mañana–Siesta" },
+        { "label": "Despliegue 2 (Pase a las sucursales)", "start": "2026-09-22", "end": "2026-09-22", "type": "deploy", "milestone": true, "highlight": true },
+        { "label": "Pase de Notas de Versión", "start": "2026-09-22", "end": "2026-09-22", "type": "deploy", "milestone": true }
       ]
     },
     {
-      "id": "sprint22-dev",
-      "label": "SPRINT 22 · DESARROLLO",
+      "id": "sprint28-dev",
+      "label": "SPRINT 28 · DESARROLLO",
       "color": "dev",
       "tasks": [
-        { "label": "Sprint 22 — Desarrollo",   "start": "2026-07-01", "end": "2026-07-14", "type": "dev" },
-        { "label": "Fecha de Corte Sprint 22", "start": "2026-07-14", "end": "2026-07-14", "type": "dev", "milestone": true }
+        { "label": "Sprint 28 — Período del Sprint", "start": "2026-09-16", "end": "2026-09-29", "type": "dev" },
+        { "label": "Fecha de Corte Sprint 28", "start": "2026-09-29", "end": "2026-09-29", "type": "dev", "milestone": true, "time": "Última hora" },
+        { "label": "Período de Testing", "start": "2026-09-30", "end": "2026-10-02", "type": "deploy" },
+        { "label": "Fin estimado T1", "start": "2026-10-01", "end": "2026-10-01", "type": "deploy", "milestone": true },
+        { "label": "Fin estimado T2", "start": "2026-10-02", "end": "2026-10-02", "type": "deploy", "milestone": true }
       ]
     },
     {
-      "id": "version-intermedia",
-      "label": "VERSIÓN INTERMEDIA",
+      "id": "sprint28-deploy",
+      "label": "SPRINT 28 · DESPLIEGUES",
       "color": "deploy",
       "tasks": [
-        { "label": "Desarrollo versión intermedia", "start": "2026-07-06", "end": "2026-07-09", "type": "dev", "milestone": true, "highlight": true },
-        { "label": "Testing Rama 'test' V. Int.", "start": "2026-07-09", "end": "2026-07-09", "type": "deploy", "milestone": true, "highlight": true },
-        { "label": "Testing Rama 'main' V. Int.", "start": "2026-07-10", "end": "2026-07-10", "type": "deploy", "milestone": true, "highlight": true },
-        { "label": "Notas de Versión Intermedia", "start": "2026-07-13", "end": "2026-07-13", "type": "deploy", "milestone": true, "highlight": true },
-        { "label": "Despliegue de Versión Intermedia", "start": "2026-07-14", "end": "2026-07-14", "type": "deploy", "milestone": true, "highlight": true }
+        { "label": "Compilado", "start": "2026-10-05", "end": "2026-10-05", "type": "deploy", "milestone": true, "time": "Mañana" },
+        { "label": "Preparación de herramientas de control", "start": "2026-10-05", "end": "2026-10-05", "type": "deploy", "milestone": true, "time": "Mañana" },
+        { "label": "Actualización de BDD", "start": "2026-10-05", "end": "2026-10-05", "type": "deploy", "milestone": true, "time": "Mañana" },
+        { "label": "Despliegue 1 (Pase a adm. para control)", "start": "2026-10-05", "end": "2026-10-05", "type": "deploy", "milestone": true, "time": "Tarde" },
+        { "label": "Despliegue 2 (Pase a las sucursales)", "start": "2026-10-06", "end": "2026-10-06", "type": "deploy", "milestone": true, "highlight": true },
+        { "label": "Pase de Notas de Versión", "start": "2026-10-06", "end": "2026-10-06", "type": "deploy", "milestone": true }
       ]
     },
     {
-      "id": "sprint22-deploy",
-      "label": "SPRINT 22 · DESPLIEGUES",
-      "color": "deploy",
-      "tasks": [
-        { "label": "Testing Rama 'test'",                    "start": "2026-07-15", "end": "2026-07-15", "type": "deploy", "milestone": true },
-        { "label": "Testing Rama 'main'",                    "start": "2026-07-16", "end": "2026-07-16", "type": "deploy", "milestone": true },
-        { "label": "Día de CMC",                             "start": "2026-07-17", "end": "2026-07-17", "type": "deploy", "milestone": true },
-        { "label": "Elaboración de Notas de Versión",        "start": "2026-07-17", "end": "2026-07-17", "type": "deploy", "milestone": true },
-        { "label": "Primera comunicación Notas de Versión",  "start": "2026-07-20", "end": "2026-07-20", "type": "deploy", "milestone": true },
-        { "label": "Despliegue Versión Sprint 2",            "start": "2026-07-21", "end": "2026-07-21", "type": "deploy", "milestone": true, "highlight": true }
-      ]
-    },
-    {
-      "id": "sprint23-dev",
-      "label": "SPRINT 23 · DESARROLLO",
+      "id": "sprint29-dev",
+      "label": "SPRINT 29 · DESARROLLO",
       "color": "dev",
       "tasks": [
-        { "label": "Sprint 23 — Desarrollo",          "start": "2026-07-15", "end": "2026-07-28", "type": "dev" },
-        { "label": "Fecha de Corte Sprint 23",         "start": "2026-07-28", "end": "2026-07-28", "type": "dev",    "milestone": true },
-        { "label": "Testing Rama 'test'",             "start": "2026-07-29", "end": "2026-07-29", "type": "deploy", "milestone": true },
-        { "label": "Testing Rama 'main'",             "start": "2026-07-30", "end": "2026-07-30", "type": "deploy", "milestone": true },
-        { "label": "Día de CMC",                      "start": "2026-07-31", "end": "2026-07-31", "type": "deploy", "milestone": true },
-        { "label": "Elaboración de Notas de Versión", "start": "2026-07-31", "end": "2026-07-31", "type": "deploy", "milestone": true }
+        { "label": "Sprint 29 — Período del Sprint", "start": "2026-09-30", "end": "2026-10-13", "type": "dev" },
+        { "label": "Fecha de Corte Sprint 29", "start": "2026-10-13", "end": "2026-10-13", "type": "dev", "milestone": true, "time": "Última hora" },
+        { "label": "Período de Testing", "start": "2026-10-14", "end": "2026-10-16", "type": "deploy" },
+        { "label": "Fin estimado T1", "start": "2026-10-15", "end": "2026-10-15", "type": "deploy", "milestone": true },
+        { "label": "Fin estimado T2", "start": "2026-10-16", "end": "2026-10-16", "type": "deploy", "milestone": true }
+      ]
+    },
+    {
+      "id": "sprint29-deploy",
+      "label": "SPRINT 29 · DESPLIEGUES",
+      "color": "deploy",
+      "tasks": [
+        { "label": "Compilado", "start": "2026-10-19", "end": "2026-10-19", "type": "deploy", "milestone": true, "time": "Mañana" },
+        { "label": "Preparación de herramientas de control", "start": "2026-10-19", "end": "2026-10-19", "type": "deploy", "milestone": true, "time": "Mañana" },
+        { "label": "Actualización de BDD", "start": "2026-10-19", "end": "2026-10-19", "type": "deploy", "milestone": true, "time": "Mañana" },
+        { "label": "Despliegue 1 (Pase a adm. para control)", "start": "2026-10-19", "end": "2026-10-19", "type": "deploy", "milestone": true, "time": "Tarde" },
+        { "label": "Despliegue 2 (Pase a las sucursales)", "start": "2026-10-20", "end": "2026-10-20", "type": "deploy", "milestone": true, "highlight": true },
+        { "label": "Pase de Notas de Versión", "start": "2026-10-20", "end": "2026-10-20", "type": "deploy", "milestone": true }
+      ]
+    },
+    {
+      "id": "sprint30-dev",
+      "label": "SPRINT 30 · DESARROLLO",
+      "color": "dev",
+      "tasks": [
+        { "label": "Sprint 30 — Período del Sprint", "start": "2026-10-14", "end": "2026-10-27", "type": "dev" },
+        { "label": "Fecha de Corte Sprint 30", "start": "2026-10-27", "end": "2026-10-27", "type": "dev", "milestone": true, "time": "Última hora" },
+        { "label": "Período de Testing", "start": "2026-10-28", "end": "2026-10-30", "type": "deploy" },
+        { "label": "Fin estimado T1", "start": "2026-10-29", "end": "2026-10-29", "type": "deploy", "milestone": true },
+        { "label": "Fin estimado T2", "start": "2026-10-30", "end": "2026-10-30", "type": "deploy", "milestone": true }
+      ]
+    },
+    {
+      "id": "sprint30-deploy",
+      "label": "SPRINT 30 · DESPLIEGUES",
+      "color": "deploy",
+      "tasks": [
+        { "label": "Compilado", "start": "2026-11-02", "end": "2026-11-02", "type": "deploy", "milestone": true, "time": "Mañana" },
+        { "label": "Preparación de herramientas de control", "start": "2026-11-02", "end": "2026-11-02", "type": "deploy", "milestone": true, "time": "Mañana" },
+        { "label": "Actualización de BDD", "start": "2026-11-02", "end": "2026-11-02", "type": "deploy", "milestone": true, "time": "Mañana" },
+        { "label": "Despliegue 1 (Pase a adm. para control)", "start": "2026-11-02", "end": "2026-11-02", "type": "deploy", "milestone": true, "time": "Tarde" },
+        { "label": "Despliegue 2 (Pase a las sucursales)", "start": "2026-11-03", "end": "2026-11-03", "type": "deploy", "milestone": true, "highlight": true },
+        { "label": "Pase de Notas de Versión", "start": "2026-11-03", "end": "2026-11-03", "type": "deploy", "milestone": true }
       ]
     }
   ]
