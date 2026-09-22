@@ -178,6 +178,13 @@
       padding: 1px 6px; border-radius: 999px;
       background: rgba(77,200,232,0.15); color: var(--vs-cyan);
     }
+    .resp-badge {
+      display: inline-block; margin-left: 5px;
+      font-size: 0.58rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.05em; white-space: nowrap; vertical-align: middle;
+      padding: 1px 6px; border-radius: 999px;
+      background: rgba(167,139,250,0.18); color: #A78BFA;
+    }
 
     /* timeline stripe */
     .group-timeline { flex: 1; position: relative; }
@@ -305,6 +312,7 @@
       .task-bar.dev    .task-bar-label { color: #1F5F72 !important; font-size: 0.52rem; }
       .task-bar.deploy .task-bar-label { color: #14532d !important; font-size: 0.52rem; }
       .time-badge { background: rgba(43,142,166,0.18) !important; color: #1F5F72 !important; }
+      .resp-badge { background: rgba(109,40,217,0.15) !important; color: #6D28D9 !important; }
       .milestone.pre    { background: #b45309 !important; box-shadow: none !important; }
       .milestone.dev    { background: #1F5F72 !important; box-shadow: none !important; }
       .milestone.deploy { background: #166534 !important; box-shadow: none !important; }
@@ -640,22 +648,23 @@ function render(lcfg, winStart, winEnd, primaryGroups) {
           style="left:${cx}px;top:${mCY}px;width:${sz}px;height:${sz}px;
                  margin-left:-${sz/2}px;margin-top:-${sz/2}px;"
           data-label="${t.label}" data-start="${t.start}"
-          data-end="${t.end}" data-type="${t.type}" data-time="${t.time || ''}"></div>`;
+          data-end="${t.end}" data-type="${t.type}" data-time="${t.time || ''}" data-resp="${t.resp || ''}"></div>`;
       } else {
         const x  = xOf(ts);
         const bw = Math.max(spanW(ts, te), 8);
         barHtml = `<div class="task-bar ${cls}${dimmed}"
           style="left:${x}px;width:${bw}px;top:${barTop}px;height:${barH}px;"
           data-label="${t.label}" data-start="${t.start}"
-          data-end="${t.end}" data-type="${t.type}" data-time="${t.time || ''}">
+          data-end="${t.end}" data-type="${t.type}" data-time="${t.time || ''}" data-resp="${t.resp || ''}">
           ${bw > 60 && !t.noLabel ? `<span class="task-bar-label">${t.label}</span>` : ''}
         </div>`;
       }
 
       const timeBadge = t.time ? `<span class="time-badge">${t.time}</span>` : '';
+      const respBadge = t.resp ? `<span class="resp-badge">${t.resp}</span>` : '';
       html += `<div class="group-row">`;
       html += `<div class="group-label task-label"
-                 style="height:${rh}px;"${dimOpacity}><span>${t.label}${timeBadge}</span></div>`;
+                 style="height:${rh}px;"${dimOpacity}><span>${t.label}${timeBadge}${respBadge}</span></div>`;
       html += `<div class="group-timeline task-stripe"
                  style="height:${rh}px;width:${totalW}px;">
                  ${weekendStripes()}${todayLine()}
@@ -670,13 +679,13 @@ ${barHtml}
   const tooltip = document.getElementById('tooltip');
   document.querySelectorAll('[data-label]').forEach(el => {
     el.addEventListener('mousemove', e => {
-      const s = el.dataset.start, en = el.dataset.end, ty = el.dataset.type, tm = el.dataset.time;
+      const s = el.dataset.start, en = el.dataset.end, ty = el.dataset.type, tm = el.dataset.time, rp = el.dataset.resp;
       document.getElementById('tt-label').textContent = el.dataset.label;
       document.getElementById('tt-date').textContent  =
         s === en ? fmtDate(parseDate(s))
                  : `${fmtDate(parseDate(s))} – ${fmtDate(parseDate(en))}`;
       const ttType = document.getElementById('tt-type');
-      ttType.textContent = typeLabel(ty) + (tm ? ` · ${tm}` : '');
+      ttType.textContent = typeLabel(ty) + (tm ? ` · ${tm}` : '') + (rp ? ` · ${rp}` : '');
       ttType.className   = `tooltip-type ${typeClass(ty)}`;
       tooltip.style.left = (e.clientX + 14) + 'px';
       tooltip.style.top  = (e.clientY - 10) + 'px';

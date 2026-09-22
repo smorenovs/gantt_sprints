@@ -39,8 +39,8 @@
         { "label": "Sprint 28 — Período del Sprint", "start": "2026-09-16", "end": "2026-09-29", "type": "dev" },
         { "label": "Fecha de Corte Sprint 28", "start": "2026-09-29", "end": "2026-09-29", "type": "dev", "milestone": true, "time": "Última hora" },
         { "label": "Período de Testing", "start": "2026-09-30", "end": "2026-10-02", "type": "deploy" },
-        { "label": "Fin estimado T1", "start": "2026-10-01", "end": "2026-10-01", "type": "deploy", "milestone": true },
-        { "label": "Fin estimado T2", "start": "2026-10-02", "end": "2026-10-02", "type": "deploy", "milestone": true }
+        { "label": "Fin estimado T1", "start": "2026-10-01", "end": "2026-10-01", "type": "deploy", "milestone": true, "resp": "Exequiel" },
+        { "label": "Fin estimado T2", "start": "2026-10-02", "end": "2026-10-02", "type": "deploy", "milestone": true, "resp": "Agustín" }
       ]
     },
     {
@@ -51,7 +51,7 @@
         { "label": "Compilado", "start": "2026-10-05", "end": "2026-10-05", "type": "deploy", "milestone": true, "time": "Mañana" },
         { "label": "Preparación de herramientas de control", "start": "2026-10-05", "end": "2026-10-05", "type": "deploy", "milestone": true, "time": "Mañana" },
         { "label": "Actualización de BDD", "start": "2026-10-05", "end": "2026-10-05", "type": "deploy", "milestone": true, "time": "Mañana" },
-        { "label": "Despliegue 1 (Pase a adm. para control)", "start": "2026-10-05", "end": "2026-10-05", "type": "deploy", "milestone": true, "time": "Tarde" },
+        { "label": "Despliegue 1 (Pase a adm. para control)", "start": "2026-10-05", "end": "2026-10-05", "type": "deploy", "milestone": true, "time": "Tarde", "resp": "V&S" },
         { "label": "Despliegue 2 (Pase a las sucursales)", "start": "2026-10-06", "end": "2026-10-06", "type": "deploy", "milestone": true, "highlight": true },
         { "label": "Pase de Notas de Versión", "start": "2026-10-06", "end": "2026-10-06", "type": "deploy", "milestone": true }
       ]
@@ -61,11 +61,13 @@
       "label": "SPRINT 29 · DESARROLLO",
       "color": "dev",
       "tasks": [
+        { "label": "Priorizar tareas", "start": "2026-09-29", "end": "2026-09-29", "type": "dev", "milestone": true },
+        { "label": "Planificar sprint", "start": "2026-09-30", "end": "2026-09-30", "type": "dev", "milestone": true },
         { "label": "Sprint 29 — Período del Sprint", "start": "2026-09-30", "end": "2026-10-13", "type": "dev" },
         { "label": "Fecha de Corte Sprint 29", "start": "2026-10-13", "end": "2026-10-13", "type": "dev", "milestone": true, "time": "Última hora" },
         { "label": "Período de Testing", "start": "2026-10-14", "end": "2026-10-16", "type": "deploy" },
-        { "label": "Fin estimado T1", "start": "2026-10-15", "end": "2026-10-15", "type": "deploy", "milestone": true },
-        { "label": "Fin estimado T2", "start": "2026-10-16", "end": "2026-10-16", "type": "deploy", "milestone": true }
+        { "label": "Fin estimado T1", "start": "2026-10-15", "end": "2026-10-15", "type": "deploy", "milestone": true, "resp": "Exequiel" },
+        { "label": "Fin estimado T2", "start": "2026-10-16", "end": "2026-10-16", "type": "deploy", "milestone": true, "resp": "Agustín" }
       ]
     },
     {
@@ -76,7 +78,7 @@
         { "label": "Compilado", "start": "2026-10-19", "end": "2026-10-19", "type": "deploy", "milestone": true, "time": "Mañana" },
         { "label": "Preparación de herramientas de control", "start": "2026-10-19", "end": "2026-10-19", "type": "deploy", "milestone": true, "time": "Mañana" },
         { "label": "Actualización de BDD", "start": "2026-10-19", "end": "2026-10-19", "type": "deploy", "milestone": true, "time": "Mañana" },
-        { "label": "Despliegue 1 (Pase a adm. para control)", "start": "2026-10-19", "end": "2026-10-19", "type": "deploy", "milestone": true, "time": "Tarde" },
+        { "label": "Despliegue 1 (Pase a adm. para control)", "start": "2026-10-19", "end": "2026-10-19", "type": "deploy", "milestone": true, "time": "Tarde", "resp": "V&S" },
         { "label": "Despliegue 2 (Pase a las sucursales)", "start": "2026-10-20", "end": "2026-10-20", "type": "deploy", "milestone": true, "highlight": true },
         { "label": "Pase de Notas de Versión", "start": "2026-10-20", "end": "2026-10-20", "type": "deploy", "milestone": true }
       ]
@@ -86,11 +88,13 @@
       "label": "SPRINT 30 · DESARROLLO",
       "color": "dev",
       "tasks": [
+        { "label": "Priorizar tareas", "start": "2026-10-13", "end": "2026-10-13", "type": "dev", "milestone": true },
+        { "label": "Planificar sprint", "start": "2026-10-14", "end": "2026-10-14", "type": "dev", "milestone": true },
         { "label": "Sprint 30 — Período del Sprint", "start": "2026-10-14", "end": "2026-10-27", "type": "dev" },
         { "label": "Fecha de Corte Sprint 30", "start": "2026-10-27", "end": "2026-10-27", "type": "dev", "milestone": true, "time": "Última hora" },
         { "label": "Período de Testing", "start": "2026-10-28", "end": "2026-10-30", "type": "deploy" },
-        { "label": "Fin estimado T1", "start": "2026-10-29", "end": "2026-10-29", "type": "deploy", "milestone": true },
-        { "label": "Fin estimado T2", "start": "2026-10-30", "end": "2026-10-30", "type": "deploy", "milestone": true }
+        { "label": "Fin estimado T1", "start": "2026-10-29", "end": "2026-10-29", "type": "deploy", "milestone": true, "resp": "Exequiel" },
+        { "label": "Fin estimado T2", "start": "2026-10-30", "end": "2026-10-30", "type": "deploy", "milestone": true, "resp": "Agustín" }
       ]
     },
     {
@@ -101,7 +105,7 @@
         { "label": "Compilado", "start": "2026-11-02", "end": "2026-11-02", "type": "deploy", "milestone": true, "time": "Mañana" },
         { "label": "Preparación de herramientas de control", "start": "2026-11-02", "end": "2026-11-02", "type": "deploy", "milestone": true, "time": "Mañana" },
         { "label": "Actualización de BDD", "start": "2026-11-02", "end": "2026-11-02", "type": "deploy", "milestone": true, "time": "Mañana" },
-        { "label": "Despliegue 1 (Pase a adm. para control)", "start": "2026-11-02", "end": "2026-11-02", "type": "deploy", "milestone": true, "time": "Tarde" },
+        { "label": "Despliegue 1 (Pase a adm. para control)", "start": "2026-11-02", "end": "2026-11-02", "type": "deploy", "milestone": true, "time": "Tarde", "resp": "V&S" },
         { "label": "Despliegue 2 (Pase a las sucursales)", "start": "2026-11-03", "end": "2026-11-03", "type": "deploy", "milestone": true, "highlight": true },
         { "label": "Pase de Notas de Versión", "start": "2026-11-03", "end": "2026-11-03", "type": "deploy", "milestone": true }
       ]
