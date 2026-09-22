@@ -23,12 +23,12 @@
       "label": "SPRINT 27 · DESPLIEGUES",
       "color": "deploy",
       "tasks": [
-        { "label": "Compilado", "start": "2026-09-21", "end": "2026-09-21", "type": "deploy", "milestone": true, "time": "Mañana" },
-        { "label": "Preparación de herramientas de control", "start": "2026-09-21", "end": "2026-09-21", "type": "deploy", "milestone": true, "time": "Mañana" },
-        { "label": "Actualización de BDD", "start": "2026-09-21", "end": "2026-09-21", "type": "deploy", "milestone": true, "time": "Mañana" },
+        { "label": "Compilado y Notas de Versión", "start": "2026-09-21", "end": "2026-09-21", "type": "deploy", "milestone": true, "time": "Mañana", "resp": "Exequiel" },
+        { "label": "Preparación de herramientas de control", "start": "2026-09-21", "end": "2026-09-21", "type": "deploy", "milestone": true, "time": "Mañana", "resp": "Santiago" },
+        { "label": "Actualización de BDD", "start": "2026-09-21", "end": "2026-09-21", "type": "deploy", "milestone": true, "time": "Mañana", "resp": "V&S" },
         { "label": "Despliegue 1 (Pase a adm. para control)", "start": "2026-09-21", "end": "2026-09-21", "type": "deploy", "milestone": true, "time": "Mañana–Siesta" },
         { "label": "Despliegue 2 (Pase a las sucursales)", "start": "2026-09-22", "end": "2026-09-22", "type": "deploy", "milestone": true, "highlight": true },
-        { "label": "Pase de Notas de Versión", "start": "2026-09-22", "end": "2026-09-22", "type": "deploy", "milestone": true }
+        { "label": "Pase de Notas de Versión", "start": "2026-09-22", "end": "2026-09-22", "type": "deploy", "milestone": true, "resp": "Santiago" }
       ]
     },
     {
@@ -48,12 +48,12 @@
       "label": "SPRINT 28 · DESPLIEGUES",
       "color": "deploy",
       "tasks": [
-        { "label": "Compilado", "start": "2026-10-05", "end": "2026-10-05", "type": "deploy", "milestone": true, "time": "Mañana" },
-        { "label": "Preparación de herramientas de control", "start": "2026-10-05", "end": "2026-10-05", "type": "deploy", "milestone": true, "time": "Mañana" },
-        { "label": "Actualización de BDD", "start": "2026-10-05", "end": "2026-10-05", "type": "deploy", "milestone": true, "time": "Mañana" },
+        { "label": "Compilado y Notas de Versión", "start": "2026-10-05", "end": "2026-10-05", "type": "deploy", "milestone": true, "time": "Mañana", "resp": "Exequiel" },
+        { "label": "Preparación de herramientas de control", "start": "2026-10-05", "end": "2026-10-05", "type": "deploy", "milestone": true, "time": "Mañana", "resp": "Santiago" },
+        { "label": "Actualización de BDD", "start": "2026-10-05", "end": "2026-10-05", "type": "deploy", "milestone": true, "time": "Mañana", "resp": "V&S" },
         { "label": "Despliegue 1 (Pase a adm. para control)", "start": "2026-10-05", "end": "2026-10-05", "type": "deploy", "milestone": true, "time": "Tarde", "resp": "V&S" },
         { "label": "Despliegue 2 (Pase a las sucursales)", "start": "2026-10-06", "end": "2026-10-06", "type": "deploy", "milestone": true, "highlight": true },
-        { "label": "Pase de Notas de Versión", "start": "2026-10-06", "end": "2026-10-06", "type": "deploy", "milestone": true }
+        { "label": "Pase de Notas de Versión", "start": "2026-10-06", "end": "2026-10-06", "type": "deploy", "milestone": true, "resp": "Santiago" }
       ]
     },
     {
@@ -75,12 +75,12 @@
       "label": "SPRINT 29 · DESPLIEGUES",
       "color": "deploy",
       "tasks": [
-        { "label": "Compilado", "start": "2026-10-19", "end": "2026-10-19", "type": "deploy", "milestone": true, "time": "Mañana" },
-        { "label": "Preparación de herramientas de control", "start": "2026-10-19", "end": "2026-10-19", "type": "deploy", "milestone": true, "time": "Mañana" },
-        { "label": "Actualización de BDD", "start": "2026-10-19", "end": "2026-10-19", "type": "deploy", "milestone": true, "time": "Mañana" },
+        { "label": "Compilado y Notas de Versión", "start": "2026-10-19", "end": "2026-10-19", "type": "deploy", "milestone": true, "time": "Mañana", "resp": "Exequiel" },
+        { "label": "Preparación de herramientas de control", "start": "2026-10-19", "end": "2026-10-19", "type": "deploy", "milestone": true, "time": "Mañana", "resp": "Santiago" },
+        { "label": "Actualización de BDD", "start": "2026-10-19", "end": "2026-10-19", "type": "deploy", "milestone": true, "time": "Mañana", "resp": "V&S" },
         { "label": "Despliegue 1 (Pase a adm. para control)", "start": "2026-10-19", "end": "2026-10-19", "type": "deploy", "milestone": true, "time": "Tarde", "resp": "V&S" },
         { "label": "Despliegue 2 (Pase a las sucursales)", "start": "2026-10-20", "end": "2026-10-20", "type": "deploy", "milestone": true, "highlight": true },
-        { "label": "Pase de Notas de Versión", "start": "2026-10-20", "end": "2026-10-20", "type": "deploy", "milestone": true }
+        { "label": "Pase de Notas de Versión", "start": "2026-10-20", "end": "2026-10-20", "type": "deploy", "milestone": true, "resp": "Santiago" }
       ]
     },
     {
@@ -102,12 +102,12 @@
       "label": "SPRINT 30 · DESPLIEGUES",
       "color": "deploy",
       "tasks": [
-        { "label": "Compilado", "start": "2026-11-02", "end": "2026-11-02", "type": "deploy", "milestone": true, "time": "Mañana" },
-        { "label": "Preparación de herramientas de control", "start": "2026-11-02", "end": "2026-11-02", "type": "deploy", "milestone": true, "time": "Mañana" },
-        { "label": "Actualización de BDD", "start": "2026-11-02", "end": "2026-11-02", "type": "deploy", "milestone": true, "time": "Mañana" },
+        { "label": "Compilado y Notas de Versión", "start": "2026-11-02", "end": "2026-11-02", "type": "deploy", "milestone": true, "time": "Mañana", "resp": "Exequiel" },
+        { "label": "Preparación de herramientas de control", "start": "2026-11-02", "end": "2026-11-02", "type": "deploy", "milestone": true, "time": "Mañana", "resp": "Santiago" },
+        { "label": "Actualización de BDD", "start": "2026-11-02", "end": "2026-11-02", "type": "deploy", "milestone": true, "time": "Mañana", "resp": "V&S" },
         { "label": "Despliegue 1 (Pase a adm. para control)", "start": "2026-11-02", "end": "2026-11-02", "type": "deploy", "milestone": true, "time": "Tarde", "resp": "V&S" },
         { "label": "Despliegue 2 (Pase a las sucursales)", "start": "2026-11-03", "end": "2026-11-03", "type": "deploy", "milestone": true, "highlight": true },
-        { "label": "Pase de Notas de Versión", "start": "2026-11-03", "end": "2026-11-03", "type": "deploy", "milestone": true }
+        { "label": "Pase de Notas de Versión", "start": "2026-11-03", "end": "2026-11-03", "type": "deploy", "milestone": true, "resp": "Santiago" }
       ]
     }
   ]
