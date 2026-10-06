@@ -1,7 +1,7 @@
 {
   "sprintViews": [
     {"id": "sprint27", "label": "Sprint 27", "coreStart": "2026-09-02", "coreEnd": "2026-09-22", "primaryGroups": ["sprint27-dev", "sprint27-deploy"]},
-    {"id": "sprint28", "label": "Sprint 28", "coreStart": "2026-09-16", "coreEnd": "2026-10-06", "primaryGroups": ["sprint28-dev", "sprint28-deploy"]},
+    {"id": "sprint28", "label": "Sprint 28", "coreStart": "2026-09-16", "coreEnd": "2026-10-07", "primaryGroups": ["sprint28-dev", "sprint28-deploy"]},
     {"id": "sprint29", "label": "Sprint 29", "coreStart": "2026-09-30", "coreEnd": "2026-10-20", "primaryGroups": ["sprint29-dev", "sprint29-deploy"]},
     {"id": "sprint30", "label": "Sprint 30", "coreStart": "2026-10-14", "coreEnd": "2026-11-03", "primaryGroups": ["sprint30-dev", "sprint30-deploy"]}
   ],
@@ -49,11 +49,11 @@
       "color": "deploy",
       "tasks": [
         { "label": "Compilado y Notas de Versión", "start": "2026-10-05", "end": "2026-10-05", "type": "deploy", "milestone": true, "time": "Mañana", "resp": "Exequiel" },
-        { "label": "Preparación de herramientas de control", "start": "2026-10-05", "end": "2026-10-05", "type": "deploy", "milestone": true, "time": "Mañana", "resp": "Santiago" },
-        { "label": "Actualización de BDD", "start": "2026-10-05", "end": "2026-10-05", "type": "deploy", "milestone": true, "time": "Mañana", "resp": "V&S" },
-        { "label": "Despliegue 1 (Pase a adm. para control)", "start": "2026-10-05", "end": "2026-10-05", "type": "deploy", "milestone": true, "time": "Tarde", "resp": "V&S" },
-        { "label": "Despliegue 2 (Pase a las sucursales)", "start": "2026-10-06", "end": "2026-10-06", "type": "deploy", "milestone": true, "highlight": true },
-        { "label": "Pase de Notas de Versión", "start": "2026-10-06", "end": "2026-10-06", "type": "deploy", "milestone": true, "resp": "Santiago" }
+        { "label": "Preparación de herramientas de control", "start": "2026-10-06", "end": "2026-10-06", "type": "deploy", "milestone": true, "time": "Mañana", "resp": "Santiago" },
+        { "label": "Actualización de BDD", "start": "2026-10-06", "end": "2026-10-06", "type": "deploy", "milestone": true, "time": "Mañana", "resp": "V&S" },
+        { "label": "Despliegue 1 (Pase a adm. para control)", "start": "2026-10-06", "end": "2026-10-06", "type": "deploy", "milestone": true, "time": "Tarde", "resp": "V&S" },
+        { "label": "Despliegue 2 (Pase a las sucursales)", "start": "2026-10-07", "end": "2026-10-07", "type": "deploy", "milestone": true, "highlight": true },
+        { "label": "Pase de Notas de Versión", "start": "2026-10-07", "end": "2026-10-07", "type": "deploy", "milestone": true, "resp": "Santiago" }
       ]
     },
     {
